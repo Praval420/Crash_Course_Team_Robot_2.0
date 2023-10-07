@@ -23,7 +23,7 @@ void loop() {
   Serial.begin(9600);
   digitalWrite(trigPin, LOW);
   delayMicroseconds(2);
-  digitalWrite(trigPin, HIGH);  // Transmit Waves For 10us
+  digitalWrite(trigPin, HIGH);  
   delayMicroseconds(10);
   duration = pulseIn(echoPin, HIGH); // Receive Reflected Waves
   distance = duration / 58.2;       // Get Distance
@@ -37,7 +37,7 @@ void loop() {
     digitalWrite(MRa, LOW);
     digitalWrite(MLb, HIGH);
     digitalWrite(MLa, LOW);
-    delay(400); // Adjust this delay to control the speed (slower)
+    delay(400); 
   }
   else if ((distance < 10) && (distance > 0)) // Condition For Presence Of Obstacle
   {
@@ -45,30 +45,30 @@ void loop() {
     digitalWrite(MRa, LOW);
     digitalWrite(MLb, LOW);
     digitalWrite(MLa, LOW);
-    delay(400); // Adjust this delay to control the speed (slower)
+    delay(400); 
 
     Myservo.write(0);
-    delay(1500); // Adjust this delay to control the speed (slower)
+    delay(1500);
     Myservo.write(180);
-    delay(1500); // Adjust this delay to control the speed (slower)
+    delay(1500); 
     Myservo.write(90);
-    delay(1500); // Adjust this delay to control the speed (slower)
+    delay(1500); 
 
     digitalWrite(MRb, LOW); // Move Backward
     digitalWrite(MRa, HIGH);
     digitalWrite(MLb, LOW);
     digitalWrite(MLa, HIGH);
-    delay(800); // Adjust this delay to control the speed (slower)
+    delay(800); 
     digitalWrite(MRb, LOW); // Stop
     digitalWrite(MRa, LOW);
     digitalWrite(MLb, LOW);
     digitalWrite(MLa, LOW);
-    delay(400); // Adjust this delay to control the speed (slower)
+    delay(400); 
 
     digitalWrite(MRb, HIGH); // Move Left
     digitalWrite(MRa, LOW);
     digitalWrite(MLa, LOW);
     digitalWrite(MLb, LOW);
-    delay(800); // Adjust this delay to control the speed (slower)
-  }
+    delay(800); 
+}
 }
